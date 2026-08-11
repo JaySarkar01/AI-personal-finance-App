@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react"
+import Link from "next/link"
 import { Sparkles, Loader2, Plus, Target, CheckCircle2 } from "lucide-react"
 import { useFinanceStore } from "@/store/finance"
 import { Goal } from "@/lib/types"
@@ -56,9 +57,11 @@ export default function GoalsPage() {
           <h1 className="text-2xl font-bold">Goals</h1>
           <p className="text-sm text-muted-foreground mt-0.5">Track your savings targets and milestones</p>
         </div>
-        <Button className="gap-2" onClick={() => toast.info("Goal creation modal coming soon!")}>
-          <Plus className="h-4 w-4" /> Add Goal
-        </Button>
+        <Link href="/goals/new">
+          <Button className="gap-2">
+            <Plus className="h-4 w-4" /> Add Goal
+          </Button>
+        </Link>
       </div>
 
       {goalsLoading && (

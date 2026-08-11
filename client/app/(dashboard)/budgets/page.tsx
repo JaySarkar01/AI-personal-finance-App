@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react"
+import Link from "next/link"
 import { Sparkles, Loader2, Plus, PieChart, AlertCircle } from "lucide-react"
 import { useFinanceStore } from "@/store/finance"
 import { Budget } from "@/lib/types"
@@ -54,9 +55,11 @@ export default function BudgetsPage() {
           <h1 className="text-2xl font-bold">Budgets</h1>
           <p className="text-sm text-muted-foreground mt-0.5">Track and control your monthly spending</p>
         </div>
-        <Button className="gap-2" onClick={() => toast.info("Budget creation modal coming soon!")}>
-          <Plus className="h-4 w-4" /> Add Budget
-        </Button>
+        <Link href="/budgets/new">
+          <Button className="gap-2">
+            <Plus className="h-4 w-4" /> Add Budget
+          </Button>
+        </Link>
       </div>
 
       {budgetsLoading && (

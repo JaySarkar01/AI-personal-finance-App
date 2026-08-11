@@ -231,6 +231,18 @@ export interface AnalyticsData {
 
 // ── Budgets & Goals ───────────────────────────────────────────────────────────
 
+export interface CreateBudgetPayload {
+  name: string;
+  limit: number;
+  categoryId?: string;
+  period?: 'monthly' | 'yearly';
+  month?: number;
+  year?: number;
+  color?: string;
+  icon?: string;
+  notes?: string;
+}
+
 export interface Budget {
   _id: string;
   name: string;
@@ -270,6 +282,18 @@ export interface Goal {
   notes: string;
   reqMonthly: number | null;
   monthsLeft: number | null;
+}
+
+export interface CreateGoalPayload {
+  name: string;
+  target: number;
+  current?: number;
+  linkedAccount?: string;
+  deadline?: string;
+  icon?: string;
+  color?: string;
+  priority?: 'low' | 'medium' | 'high';
+  notes?: string;
 }
 
 export interface CreateSubscriptionPayload {
